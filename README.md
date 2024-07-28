@@ -2,6 +2,10 @@
 
 A polyfill for the [View Transitions API](https://drafts.csswg.org/css-view-transitions/).
 
+## Demo
+
+View some [demos showing example transitions](https://demarketed.github.io/view-transitions-polyfill/).
+
 ## Usage
 
 Import the module into your site:
