@@ -14,28 +14,6 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Configure GitHub Pages
-        if: ${{ !env.ACT }}
-        uses: actions/configure-pages@v5.0.0
-
-      - name: Install dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-
-      - name: Build
-        run: "npm run build"
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.0.1
-        if: ${{ !env.ACT }}
-        with:
-          path: .
-
   build-demos:
     runs-on: ubuntu-latest
 
