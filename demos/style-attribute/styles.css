@@ -1,0 +1,35 @@
+main {
+  font-family: monospace;
+}
+.container,
+.change-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+.container > *,
+.change-container > * {
+  flex: 1 18rem;
+}
+.element {
+  display: block;
+  padding: 1rem;
+}
+.value,
+.controls-container {
+  display: block;
+  padding: 1rem;
+  background-color: rgb(48, 48, 48);
+}
+.controls-container {
+  font-family: system-ui, sans-serif;
+}
+.controls-container input {
+  font-family: monospace;
+}
+.red {
+  background-color: rgb(153, 0, 0);
+}
+.green {
+  background-color: rgb(0, 80, 0);
+}

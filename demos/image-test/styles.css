@@ -1,0 +1,17 @@
+main {
+  padding: 2rem;
+}
+img {
+  view-transition-name: img;
+  max-width: 100%;
+  display: block;
+}
+.main-page-2 img {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 10rem;
+}
+::view-transition-group(img) {
+  animation-duration: 1.5s;
+}

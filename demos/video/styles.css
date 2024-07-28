@@ -1,0 +1,42 @@
+.main-video {
+  aspect-ratio: 16/9;
+  max-width: 100%;
+  view-transition-name: main-video;
+  contain: layout;
+  position: relative;
+  z-index: 1;
+}
+
+.post-video-content {
+  view-transition-name: post-video-content;
+  contain: layout;
+}
+
+.main-video.overlay {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 300px;
+  z-index: 1;
+}
+
+.slow::view-transition-group(*),
+.slow::view-transition-old(*),
+.slow::view-transition-new(*) {
+  animation-duration: 5s;
+}
+
+.move-video::view-transition-old(main-video) {
+  display: none;
+}
+
+.move-video::view-transition-new(main-video) {
+  animation: none;
+}
+
+::view-transition-group(main-video) {
+  z-index: 1;
+}
+polyfill-switch {
+  z-index: 1;
+}

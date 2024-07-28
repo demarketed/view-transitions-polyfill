@@ -1,0 +1,59 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mega-spin {
+  to {
+    transform: rotate(5turn);
+  }
+}
+
+@keyframes batman {
+  0% {
+    transform: scale(0.2) translateY(6%);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.7) translateY(6%);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(0.2) translateY(6%);
+  }
+}
+
+::view-transition {
+  inset: 0;
+}
+
+::view-transition-group(root) {
+  animation: 1s ease both mega-spin;
+  transform-origin: 50% 50%;
+}
+
+::view-transition-group(batman) {
+  aspect-ratio: 592.2 / 569;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::view-transition-image-pair(batman) {
+  background: url(batman.svg) no-repeat center;
+  background-size: contain;
+  animation:
+    100ms ease-in-out both fade-in,
+    100ms 900ms ease-in-out both fade-out,
+    1s linear both batman;
+  transform-origin: 50% 50%;
+}

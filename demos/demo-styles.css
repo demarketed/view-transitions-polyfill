@@ -1,0 +1,79 @@
+html {
+  min-block-size: 100svb;
+  color-scheme: light dark;
+  color: white;
+  background-color: hsl(219, 100%, 15%);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  overflow-x: clip;
+}
+html,
+body {
+  margin: 0;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  block-size: 3rem;
+  padding-inline: 1rem;
+  background-color: hsl(219, 100%, 37%);
+}
+header a {
+  color: unset;
+  text-decoration: unset;
+  background-color: hsl(219, 100%, 15%);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+header a:hover {
+  background-color: hsl(218, 100%, 5%);
+}
+header a:active {
+  background-color: hsl(218, 100%, 0%);
+}
+main {
+  padding: 2rem;
+}
+.other-page {
+  color: unset;
+  text-decoration: unset;
+  background-color: hsl(219, 100%, 37%);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.other-page:hover {
+  background-color: hsl(219, 100%, 27%);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  min-block-size: 100svb;
+}
+main {
+  padding: 2rem;
+  flex: 1;
+}
+.page-2 {
+  background-color: hsl(160, 100%, 18%);
+}
+h1 {
+  margin-block-start: 0;
+}
+img,
+video {
+  height: auto;
+}

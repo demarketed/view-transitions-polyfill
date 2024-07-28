@@ -1,0 +1,25 @@
+header a {
+  color: unset;
+  text-decoration: unset;
+  background-color: hsl(219, 100%, 15%);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+header a:hover {
+  background-color: hsl(218, 100%, 5%);
+}
+header a:active {
+  background-color: hsl(218, 100%, 0%);
+}
+main {
+  border: 0.5rem dashed hsl(219, 100%, 35%);
+  margin: 2rem;
+  flex: 0;
+}
+.container {
+  view-transition-name: container;
+  inline-size: 20rem;
+  margin-inline: auto;
+  background-color: hsl(219, 100%, 35%);
+}

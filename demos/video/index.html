@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video demo</title>
+    <link rel="stylesheet" href="../demo-styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./script.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="../../" data-demo-link="">Demo list</a>
+      Video
+    </header>
+    <main>
+      <h1>Video demo</h1>
+      <video
+        controls
+        class="main-video"
+        src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4"
+        loop=""
+        muted=""
+        width="1280"
+        height="720"
+      ></video>
+
+      <div class="post-video-content">
+        <p>
+          <a href="https://test-videos.co.uk/bigbuckbunny/mp4-h264"
+            >Video source</a
+          >
+        </p>
+        <p>
+          <button class="toggle-video-position">Start transition</button>
+        </p>
+        <p>
+          <button class="toggle-video-position-slow">
+            Start slow transition</button
+          >.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+main {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.element {
+  aspect-ratio: 1;
+  background-color: var(--element-background-color);
+  display: grid;
+  place-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+.empty {
+  border: 0.5rem dashed gray;
+}
+.page-1 {
+  view-transition-name: page-1;
+}
+main > :nth-child(1) {
+  --element-background-color: hsl(60, 100%, 25%);
+}
+main > :nth-child(2) {
+  --element-background-color: hsl(120, 100%, 25%);
+}
+main > :nth-child(3) {
+  --element-background-color: hsl(0, 100%, 25%);
+}
+main > :nth-child(4) {
+  --element-background-color: hsl(180, 100%, 25%);
+}
+.rotating {
+  view-transition-name: rotating;
+}
+.translating-rotating {
+  view-transition-name: translating-rotating;
+}
+.scaling {
+  view-transition-name: scaling;
+}
+.page-2 {
+  view-transition-name: page-2;
+}
+.main-page-2 .translating-rotating {
+  transform: translateY(100%) rotate(45deg);
+}
+.main-page-2 .rotating {
+  transform: rotate(45deg);
+}
+.main-page-2 .scaling {
+  transform: scale(0.75);
+}
+.translating-rotating-standalone {
+  view-transition-name: translating-rotating-standalone;
+}
+.main-page-2 .translating-rotating-standalone {
+  rotate: 45deg;
+  transform: translate(100%);
+}

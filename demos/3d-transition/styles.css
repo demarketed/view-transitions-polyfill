@@ -1,0 +1,52 @@
+::view-transition {
+  background: #000;
+  inset: 0;
+}
+
+::view-transition-group(root) {
+  perspective: 1000vw;
+}
+
+::view-transition-group(root),
+::view-transition-image-pair(root) {
+  transform-style: preserve-3d;
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  transform-style: preserve-3d;
+  mix-blend-mode: normal;
+  backface-visibility: hidden;
+  animation: none;
+}
+
+::view-transition-image-pair(root) {
+  animation: rotate 1s ease forwards;
+}
+.to-page-2::view-transition-new(root) {
+  animation-direction: normal;
+}
+.to-page-1::view-transition-image-pair(root) {
+  animation-direction: reverse;
+}
+
+.to-page-2::view-transition-new(root) {
+  transform: rotateY(90deg) translateZ(50vw) translateX(50vw);
+}
+.to-page-1::view-transition-old(root) {
+  transform: rotateY(90deg) translateZ(50vw) translateX(50vw);
+}
+
+@keyframes rotate {
+  from,
+  to {
+    transform-origin: right;
+  }
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-90deg) translateZ(100vw);
+  }
+}

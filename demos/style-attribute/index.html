@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../demo-styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./script.js" defer></script>
+    <title>Style Attribute</title>
+  </head>
+  <body>
+    <header>
+      <a href="../../" data-demo-link="">Demo list</a>
+      Test style="" HTML attribute with view-transition-name
+    </header>
+    <main>
+      <div class="container">
+        <div class="element red" style="view-transition-name: element">
+          style="view-transition-name: element;"
+        </div>
+        <div class="value">Pending...</div>
+      </div>
+      <div class="container">
+        <div class="element red" style="view-transition-name: element">
+          style="view-transition-name: element"
+        </div>
+        <div class="value">Pending...</div>
+      </div>
+      <div class="container">
+        <div
+          class="element red"
+          style="
+            view-transition-name: overwritten;
+            view-transition-name: element;
+          "
+        >
+          style="view-transition-name: overwritten; view-transition-name:
+          element;"
+        </div>
+        <div class="value">Pending...</div>
+      </div>
+      <div class="container">
+        <div class="element red" style="--vt-polyfill-name: element">
+          style="--vt-polyfill-name: element;"
+        </div>
+        <div class="value">Pending...</div>
+      </div>
+      <div class="container">
+        <div
+          class="element red"
+          style="view-transition-name: overwritten; --vt-polyfill-name: element"
+        >
+          style="view-transition-name: overwritten; --vt-polyfill-name:
+          element;"
+        </div>
+        <div class="value">Pending...</div>
+      </div>
+      <div class="change-container">
+        <div class="element green" id="name-target">
+          No view-transition-name
+        </div>
+        <div class="controls-container">
+          <label for="name-setter">Set view-transition-name to:</label>
+          <input type="text" id="name-setter" />
+          <button id="submit-name">Submit name</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

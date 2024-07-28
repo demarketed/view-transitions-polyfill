@@ -1,0 +1,131 @@
+main {
+  min-block-size: 300vb;
+  background-image: linear-gradient(
+    to bottom,
+    hsl(219, 100%, 15%),
+    hsl(219, 100%, 25%),
+    hsl(219, 100%, 35%),
+    hsl(219, 100%, 45%),
+    hsl(219, 100%, 55%),
+    hsl(219, 100%, 65%),
+    hsl(219, 100%, 75%),
+    hsl(219, 100%, 85%),
+    hsl(219, 100%, 95%)
+  );
+  position: relative;
+  overflow: clip;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.fixed {
+  position: relative;
+  aspect-ratio: 1;
+  width: 100px;
+  background-image: radial-gradient(
+    circle at center,
+    white,
+    white 60%,
+    transparent
+  );
+  box-shadow: 0px 0px 30px white;
+  border-radius: 50%;
+  view-transition-name: fixed;
+}
+.pos1 {
+  top: 100px;
+  left: 30px;
+}
+.pos2 {
+  bottom: -400px;
+  right: -100px;
+}
+.el {
+  position: relative;
+  width: 400px;
+  height: 150px;
+  background-color: white;
+  border: 3px solid rgb(189, 189, 189);
+  border-radius: 100vh;
+  box-shadow: 0px 0px 30px white;
+  display: grid;
+  place-content: center;
+  animation: 10s ease-in-out cloud-sway alternate-reverse infinite;
+}
+.bottom {
+  box-sizing: border-box;
+  top: 200vh;
+  padding-top: 1px;
+}
+.nested {
+  height: 250px;
+  aspect-ratio: 1;
+  background-color: white;
+  border: 3px solid rgb(189, 189, 189);
+  border-radius: 50%;
+}
+.ground {
+  height: 4rem;
+  background-image: radial-gradient(
+    ellipse at bottom,
+    darkgreen,
+    darkgreen 70%,
+    transparent 72%,
+    transparent
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.sun {
+  position: absolute;
+  right: 4rem;
+  top: 225vh;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at center, orange, yellow);
+  box-shadow: 0 0 4rem yellow;
+  display: grid;
+  place-content: center;
+}
+.sun::before {
+  content: '';
+  width: 80rem;
+  height: 80rem;
+  background-image: conic-gradient(
+    from 0.45turn,
+    transparent,
+    rgba(255, 255, 0, 0.75) 0.15turn,
+    transparent 0.3turn,
+    transparent
+  );
+  mask-image: radial-gradient(
+    circle at center,
+    transparent,
+    white 4rem,
+    white 50%,
+    transparent 70%,
+    transparent
+  );
+  animation: 10s ease-in-out sun-sway alternate-reverse infinite;
+}
+@keyframes sun-sway {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes cloud-sway {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translate(300px);
+  }
+}

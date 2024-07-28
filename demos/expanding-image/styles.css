@@ -1,0 +1,97 @@
+main {
+  padding: 0;
+}
+h1 {
+  margin-block-start: 0.8em;
+}
+.image-1 {
+  view-transition-name: img;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+.link-container {
+  width: fit-content;
+  margin: 2rem;
+}
+.article-link {
+  display: block;
+  color: unset;
+  text-decoration: unset;
+}
+.content {
+  width: 20rem;
+  aspect-ratio: 1;
+  background-color: rgb(199, 199, 199);
+  border: 0.3rem solid gray;
+  border-radius: 0.3rem;
+  box-shadow: 10px 10px 5px #000;
+  color: black;
+  display: grid;
+}
+.content img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 100%;
+  object-position: center;
+}
+.caption {
+  padding: 1rem;
+  text-align: center;
+}
+
+h1,
+p {
+  margin-inline: 2rem;
+}
+main.page-2 img {
+  width: 100%;
+  max-width: 50rem;
+  object-fit: contain;
+  object-position: center;
+}
+main.page-2 .large-image {
+  background-color: rgba(128, 128, 128, 0.5);
+  padding-inline: 2rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+::view-transition-old(img),
+::view-transition-new(img) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+  overflow: clip;
+}
+
+::view-transition-image-pair(img) {
+  isolation: none;
+}
+
+.to-page-2::view-transition-old(img) {
+  object-fit: contain;
+}
+
+.to-page-2::view-transition-new(img) {
+  object-fit: cover;
+}
+
+.to-page-1::view-transition-old(img) {
+  object-fit: cover;
+}
+
+.to-page-1::view-transition-new(img) {
+  object-fit: contain;
+}

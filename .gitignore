@@ -1,0 +1,10 @@
+node_modules
+
+# Builds
+dist
+test/dist
+demos/dist
+
+# Web-platform-tests
+test/wpt
+test/report
