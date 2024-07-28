@@ -4,9 +4,11 @@
   "description": "A polyfill for the View Transitions API.",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "run-p build-watch-demos serve",
+    "serve": "vite",
     "build": "vite build",
     "build-demos": "vite build --config vite.config.demos.js",
+    "build-watch-demos": "vite build --watch --config vite.config.demos.js",
     "build-always-polyfill": "vite build --config vite.config.always.polyfill.js",
     "test-setup": "node test/setup.js && npm run build",
     "test-setup-always-polyfill": "node test/setup.js && npm run build-always-polyfill",
@@ -35,6 +37,7 @@
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
     "globals": "^15.8.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "typescript-eslint": "^7.17.0",
     "vite": "^5.1.6"
