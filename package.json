@@ -32,6 +32,10 @@
     "typescript": "^5.4.2"
   },
   "homepage": "https://github.com/demarketed/view-transitions-polyfill#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demarketed/view-transitions-polyfill.git"
+  },
   "devDependencies": {
     "@eslint/js": "^8.57.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
