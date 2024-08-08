@@ -7,6 +7,7 @@ import { execSync } from 'node:child_process';
 import { exit } from 'node:process';
 
 const wptRepo = 'https://github.com/web-platform-tests/wpt.git';
+const branch = 'master';
 const testDir = dirname(fileURLToPath(import.meta.url));
 const packageDir = resolve(testDir, '..');
 
@@ -14,12 +15,14 @@ console.log(`Cloning repo: ${wptRepo}`);
 
 if (existsSync(resolve(packageDir, 'test/wpt'))) {
   console.log(`Directory test/wpt already exists, pulling changes`);
-  execSync(`git pull --ff-only`, { cwd: resolve(packageDir, 'test/wpt') });
+  execSync(`git pull --ff-only ${wptRepo} ${branch}`, {
+    cwd: resolve(packageDir, 'test/wpt'),
+  });
   console.log('Successfully pulled changes');
   exit(0);
 }
 
-execSync(`git clone --depth 1 --branch master --single-branch ${wptRepo}`, {
+execSync(`git clone --depth 1 --branch ${branch} --single-branch ${wptRepo}`, {
   cwd: testDir,
 });
 console.log('Successfully cloned repo');
