@@ -8,16 +8,20 @@ View some [demos showing example transitions](https://demarketed.github.io/view-
 
 ## Usage
 
-Import the module into your site:
+Import the module into your site.
+
+Inside a script:
 
 ```js
 import 'view-transitions-polyfill';
 ```
 
-Or:
+Or from the HTML:
 
 ```html
-<script src="view-transitions-polyfill"></script>
+<script type="module">
+  import 'view-transitions-polyfill';
+</script>
 ```
 
 ### With Astro View Transitions
