@@ -31,6 +31,7 @@
     "css-tree": "^2.3.1",
     "typescript": "^5.4.2"
   },
+  "homepage": "https://github.com/demarketed/view-transitions-polyfill#readme",
   "devDependencies": {
     "@eslint/js": "^8.57.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
