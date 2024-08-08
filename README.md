@@ -2,9 +2,19 @@
 
 A polyfill for the [View Transitions API](https://drafts.csswg.org/css-view-transitions/).
 
+The polyfill is [available on NPM](https://www.npmjs.com/package/view-transitions-polyfill).
+
 ## Demo
 
 View some [demos showing example transitions](https://demarketed.github.io/view-transitions-polyfill/).
+
+## Installation
+
+Install the polyfill in your project from [NPM](https://www.npmjs.com/package/view-transitions-polyfill):
+
+```
+npm install view-transitions-polyfill
+```
 
 ## Usage
 
