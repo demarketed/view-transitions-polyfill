@@ -12,8 +12,8 @@
     "build-always-polyfill": "vite build --config vite.config.always.polyfill.js",
     "test-setup": "node test/setup.js && npm run build",
     "test-setup-always-polyfill": "node test/setup.js && npm run build-always-polyfill",
-    "test": "npm run test-setup && cd test && cd wpt && python wpt run --no-enable-webtransport-h3 --log-mach=- --headless --log-wptreport ../report/report.json --log-wptscreenshot ../report/screenshots.txt --log-html ../report/index.html --inject-script ../../dist/view-transitions-polyfill.js firefox css/css-view-transitions",
-    "test-always-polyfill": "npm run test-setup-always-polyfill && cd test && cd wpt && python wpt run --no-enable-webtransport-h3 --log-mach=- --headless --log-wptreport ../report/report.json --log-wptscreenshot ../report/screenshots.txt --log-html ../report/index.html --inject-script ./../test/dist/view-transitions-polyfill.js firefox css/css-view-transitions",
+    "test": "npm run test-setup && cd test && cd wpt && python wpt run -y --no-enable-webtransport-h3 --log-mach=- --headless --log-wptreport ../report/report.json --log-wptscreenshot ../report/screenshots.txt --log-html ../report/index.html --inject-script ../../dist/view-transitions-polyfill.js firefox css/css-view-transitions",
+    "test-always-polyfill": "npm run test-setup-always-polyfill && cd test && cd wpt && python wpt run -y --no-enable-webtransport-h3 --log-mach=- --headless --log-wptreport ../report/report.json --log-wptscreenshot ../report/screenshots.txt --log-html ../report/index.html --inject-script ./../test/dist/view-transitions-polyfill.js firefox css/css-view-transitions",
     "test-debug": "npm run test-setup && cd test && cd wpt && echo Default location of debug server: http://web-platform.test:8000/ && python wpt serve --inject-script ./../dist/view-transitions-polyfill.js"
   },
   "keywords": [
