@@ -15,19 +15,21 @@ html {
     'Open Sans',
     'Helvetica Neue',
     sans-serif;
-  overflow-x: clip;
 }
 html,
 body {
   margin: 0;
+  overflow-x: clip;
 }
 header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  block-size: 3rem;
+  padding-block: 0.5rem;
   padding-inline: 1rem;
   background-color: hsl(219, 100%, 37%);
+  overflow-x: clip;
+  flex-wrap: wrap;
 }
 header a {
   color: unset;
@@ -36,6 +38,7 @@ header a {
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  flex-shrink: 0;
 }
 header a:hover {
   background-color: hsl(218, 100%, 5%);

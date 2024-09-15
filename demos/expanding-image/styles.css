@@ -45,6 +45,15 @@ h1,
 p {
   margin-inline: 2rem;
 }
+@media (max-width: 390px) {
+  h1,
+  p {
+    margin-inline: 0.8rem;
+  }
+  .link-container {
+    margin: 0.8rem;
+  }
+}
 main.page-2 img {
   width: 100%;
   max-width: 50rem;
