@@ -8,6 +8,8 @@ The polyfill is [available on NPM](https://www.npmjs.com/package/view-transition
 
 View some [demos showing example transitions](https://demarketed.github.io/view-transitions-polyfill/).
 
+![A screen recording of some demos from the above link](./showcase.webp)
+
 ## Installation
 
 Install the polyfill in your project from [NPM](https://www.npmjs.com/package/view-transitions-polyfill):
