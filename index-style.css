@@ -26,6 +26,34 @@ body {
   max-inline-size: 40rem;
   margin-inline: auto;
 }
+.buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.25em;
+}
+.link-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  background-color: hsl(219, 56%, 72%);
+  box-shadow: 0px 0px 0.3em 0.3em hsl(219, 56%, 68%);
+  text-decoration: none;
+  color: black;
+  border-radius: 2em;
+  transition:
+    250ms ease background-color,
+    250ms ease transform;
+}
+.gh-logo {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+}
+.link-button:hover {
+  background-color: hsl(219, 67%, 70%);
+  transform: scale(1.1);
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -57,10 +85,30 @@ li:focus-within {
   background-color: rgb(99, 143, 224);
   transform: scale(1.1);
 }
+.light-mode {
+  display: block;
+}
+.dark-mode {
+  display: none;
+}
 @media screen and (prefers-color-scheme: dark) {
   html {
     color: white;
     background-color: rgb(0, 27, 78);
+  }
+  .dark-mode {
+    display: block;
+  }
+  .light-mode {
+    display: none;
+  }
+  .link-button {
+    background-color: hsl(220, 100%, 8%);
+    color: white;
+    box-shadow: 0px 0px 5px 5px hsl(220, 100%, 38%);
+  }
+  .link-button:hover {
+    background-color: rgb(0, 40, 114);
   }
   li {
     background-color: rgb(0, 12, 34);
