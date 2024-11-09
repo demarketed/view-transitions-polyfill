@@ -29,7 +29,8 @@ body {
 .buttons-wrapper {
   display: flex;
   justify-content: center;
-  gap: 1.25em;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 .link-button {
   display: flex;
@@ -37,7 +38,7 @@ body {
   gap: 0.5em;
   padding: 0.5em 1em;
   background-color: hsl(219, 56%, 72%);
-  box-shadow: 0px 0px 0.3em 0.3em hsl(219, 56%, 68%);
+  border: 0.3em solid rgb(183, 202, 236);
   text-decoration: none;
   color: black;
   border-radius: 2em;
@@ -45,7 +46,7 @@ body {
     250ms ease background-color,
     250ms ease transform;
 }
-.gh-logo {
+.logo {
   display: block;
   width: 1.5em;
   height: 1.5em;
@@ -85,6 +86,12 @@ li:focus-within {
   background-color: rgb(99, 143, 224);
   transform: scale(1.1);
 }
+footer {
+  margin-block-start: 2rem;
+}
+footer small {
+  color: rgb(94, 94, 94);
+}
 .light-mode {
   display: block;
 }
@@ -105,7 +112,7 @@ li:focus-within {
   .link-button {
     background-color: hsl(220, 100%, 8%);
     color: white;
-    box-shadow: 0px 0px 5px 5px hsl(220, 100%, 38%);
+    border: 0.3em solid rgb(41, 57, 87);
   }
   .link-button:hover {
     background-color: rgb(0, 40, 114);
@@ -117,5 +124,8 @@ li:focus-within {
   li:has(a:hover),
   li:focus-within {
     background-color: rgb(0, 40, 114);
+  }
+  footer small {
+    color: rgb(185, 185, 185);
   }
 }
