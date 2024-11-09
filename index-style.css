@@ -46,7 +46,7 @@ li::marker {
 .link-wrapper {
   display: block;
 }
-a {
+ul a {
   display: grid;
   height: 2em;
   padding-inline: 1rem;
