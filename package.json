@@ -47,5 +47,8 @@
   "files": [
     "dist"
   ],
-  "browser": "./dist/view-transitions-polyfill.js"
+  "browser": "./dist/view-transitions-polyfill.js",
+  "exports": {
+    ".": "./dist/view-transitions-polyfill.js"
+  }
 }
