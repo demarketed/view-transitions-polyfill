@@ -36,6 +36,18 @@ Or from the HTML:
 </script>
 ```
 
+## Compatibility
+
+The polyfill currently requires the browser to support these notable features:
+
+- [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
+- [Document.getAnimations()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getAnimations)
+- [requestAnimationFrame()](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame)
+- Custom elements
+- Shadow DOM
+- [CSS :where() selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+- [Array.findLast()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)
+
 ### With Astro View Transitions
 
 You can use the polyfill with [Astro view transitions](https://docs.astro.build/en/guides/view-transitions/) by importing the script in the document as you would normally. For example, within a component:
