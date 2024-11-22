@@ -54,7 +54,6 @@ The polyfill currently requires the browser to support these notable features:
 - Custom elements
 - Shadow DOM
 - [CSS :where() selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
-- [Array.findLast()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)
 
 ## Development
 
