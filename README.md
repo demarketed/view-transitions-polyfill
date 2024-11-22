@@ -36,6 +36,14 @@ Or from the HTML:
 </script>
 ```
 
+### With Astro View Transitions
+
+You can use the polyfill with [Astro view transitions](https://docs.astro.build/en/guides/view-transitions/) by importing the script in the document as you would normally. For example, within a component:
+
+```html
+<script src="view-transitions-polyfill"></script>
+```
+
 ## Compatibility
 
 The polyfill currently requires the browser to support these notable features:
@@ -47,14 +55,6 @@ The polyfill currently requires the browser to support these notable features:
 - Shadow DOM
 - [CSS :where() selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
 - [Array.findLast()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)
-
-### With Astro View Transitions
-
-You can use the polyfill with [Astro view transitions](https://docs.astro.build/en/guides/view-transitions/) by importing the script in the document as you would normally. For example, within a component:
-
-```html
-<script src="view-transitions-polyfill"></script>
-```
 
 ## Development
 
