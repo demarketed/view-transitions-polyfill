@@ -7,6 +7,7 @@
     "dev": "run-p build-watch-demos serve",
     "serve": "vite",
     "build": "vite build",
+    "build-watch": "vite build --watch",
     "build-demos": "vite build --config vite.config.demos.js",
     "build-watch-demos": "vite build --watch --config vite.config.demos.js",
     "build-always-polyfill": "vite build --config vite.config.always.polyfill.js",
