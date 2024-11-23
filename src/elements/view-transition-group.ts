@@ -34,6 +34,7 @@ export default class ViewTransitionGroup extends HTMLElement {
 
     this.imagePair = new ViewTransitionImagePair();
     this.oldImage = this.imagePair.setupForOldImage(name, captureElement);
+    if (this.oldImage) this.forceDisplay(this.oldImage, true);
 
     // Set initial positioning values for the group
     // This prevents a flash of unpositioned groups before the update callback
@@ -41,6 +42,16 @@ export default class ViewTransitionGroup extends HTMLElement {
     this.mapStyleValuesForAttribute(initialValues);
     this.appendChild(this.imagePair);
     this.appendChild(this.groupStyle);
+  }
+  forceDisplay(image: ViewTransitionOld | ViewTransitionNew, toggle: boolean) {
+    // Force an element's CSS display value to block (therefore not none)
+    // This is useful for the old image: because ViewTransitionManager
+    //  yields to the browser's event loop before showing the new images
+    //  of captured elements, we need to avoid a flash of missing elements.
+    // This could happen if the website's authour has set display: none
+    //  on a class of ::view-transition-old expecting the new image to already
+    //  be there, even though the polyfill cannot place it in the DOM yet.
+    image.style.display = toggle ? 'block' : '';
   }
   setupForNewImage(name: string, captureElement: CaptureElement) {
     this.transitionName = name;
@@ -113,6 +124,9 @@ export default class ViewTransitionGroup extends HTMLElement {
       );
       return;
     }
+
+    // Reset forced display mode
+    this.forceDisplay(this.oldImage, false);
 
     this.captureElement.groupKeyframes = `
         @keyframes -ua-view-transition-group-anim-${this.transitionName} {
