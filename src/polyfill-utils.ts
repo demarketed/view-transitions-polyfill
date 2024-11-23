@@ -44,6 +44,13 @@ export class ViewTransition {
   }
 }
 
+export const afterNextPaint = (): Promise<void> =>
+  new Promise<void>((resolve) => {
+    requestAnimationFrame(() => {
+      setTimeout(resolve, 0);
+    });
+  });
+
 const isElementUnallowed = (el: Element) => {
   const unallowedTagNames = [
     'head',

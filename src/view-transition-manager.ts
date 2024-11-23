@@ -11,7 +11,11 @@ import ViewTransitionGroup from './elements/view-transition-group';
 import type { StylableElement } from './polyfill-utils';
 import type { Callback } from './polyfill-utils';
 import { ViewTransitionElement } from './elements/view-transition-element';
-import { setElementVisibility, setDocumentVisibility } from './polyfill-utils';
+import {
+  setElementVisibility,
+  setDocumentVisibility,
+  afterNextPaint,
+} from './polyfill-utils';
 
 declare global {
   interface CSSStyleDeclaration {
@@ -203,6 +207,9 @@ export default class ViewTransitionManager {
       }
     }
     this.captureElements('new');
+
+    // Yield control of the event loop to the browser
+    await afterNextPaint();
     this.setupGroups();
     this.newElements.forEach((element) => setElementVisibility(element, false));
     this.transitionPromises.ready.resolve();
