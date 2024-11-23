@@ -46,7 +46,15 @@ You can use the polyfill with [Astro view transitions](https://docs.astro.build/
 
 ## Compatibility
 
-The polyfill currently requires the browser to support these notable features:
+According to data from [Can I use](https://caniuse.com/es6,web-animation,mdn-css_selectors_where,shadowdomv1,mdn-api_customelementregistry,requestanimationframe), the polyfill should be fully supported on:
+
+- Chrome ≥ 88
+- Edge ≥ 88
+- Opera ≥ 74
+- Safari ≥ 14
+- Firefox ≥ 78
+
+This is because the polyfill currently requires the browser to support these notable features:
 
 - [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
 - [Document.getAnimations()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getAnimations)
