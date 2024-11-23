@@ -87,17 +87,6 @@ const isElementOutsideViewport = (el: Element) => {
   );
 };
 
-const cloneAsSpacer = (el: Element) => {
-  const position = getComputedStyle(el).position;
-  if (!(position === 'static' || position === 'relative')) return;
-  const clone = document.createElement('div');
-  clone.dataset.vtSpacer = '';
-  const rect = el.getBoundingClientRect();
-  clone.style.width = `${rect.width}px`;
-  clone.style.height = `${rect.height}px`;
-  return clone;
-};
-
 // Always clone these link properties, as their real values
 // could be hidden by the :visited pseudo-class.
 // https://developer.mozilla.org/en-US/docs/Web/CSS/:visited#privacy_restrictions
@@ -150,6 +139,17 @@ const neverCloneProperties = [
   'min-inline-size',
   'min-block-size',
 ];
+
+const cloneAsSpacer = (el: Element) => {
+  const clone = document.createElement('div');
+  clone.dataset.vtSpacer = '';
+
+  const style = getComputedStyle(el);
+  for (const prop of alwaysCloneProperties) {
+    clone.style.setProperty(prop, style.getPropertyValue(prop));
+  }
+  return clone;
+};
 
 // The Element interface does not implement the style property (needed for cloning),
 //  but all of its subclasses do.
@@ -352,7 +352,6 @@ export function cloneElementWithStyles(
           // only clone it as an empty div to take up space,
           // saving resources by not cloning its subtree.
           const childClone = cloneAsSpacer(child);
-          if (!childClone) continue;
           clone.appendChild(childClone);
           continue;
         }
