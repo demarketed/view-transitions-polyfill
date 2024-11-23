@@ -140,12 +140,29 @@ const neverCloneProperties = [
   'min-block-size',
 ];
 
+const spacerProperties = [
+  'position',
+  'margin-top',
+  'margin-bottom',
+  'margin-right',
+  'margin-left',
+  'position',
+  'top',
+  'bottom',
+  'right',
+  'left',
+];
+
 const cloneAsSpacer = (el: Element) => {
   const clone = document.createElement('div');
   clone.dataset.vtSpacer = '';
 
+  const rect = el.getBoundingClientRect();
+  clone.style.width = `${rect.width}px`;
+  clone.style.height = `${rect.height}px`;
+
   const style = getComputedStyle(el);
-  for (const prop of alwaysCloneProperties) {
+  for (const prop of spacerProperties) {
     clone.style.setProperty(prop, style.getPropertyValue(prop));
   }
   return clone;
