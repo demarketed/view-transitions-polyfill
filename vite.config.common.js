@@ -11,8 +11,10 @@ export default function fromConfigTemplate(entryPoint, outDirectory) {
       outDir: outDirectory,
       emptyOutDir: false,
     },
-    watch: {
-      ignored: (path) => path.includes('wpt'),
+    server: {
+      watch: {
+        ignored: (file) => file.includes('wpt'),
+      },
     },
     optimizeDeps: {
       entries: ['src/**/*', 'demos/**/*'],
