@@ -24,6 +24,7 @@ export async function parseStyles() {
   const linkedStylesheetsContents: Map<CSSStyleSheet, string> = new Map();
   await Promise.all(
     linkedStylesheets.map(async (stylesheet) => {
+      performance.mark(`linked-style-${stylesheet.href}`);
       const href = stylesheet.href;
       if (!href) return;
       const fetchResponse = await fetch(href, {
@@ -31,6 +32,12 @@ export async function parseStyles() {
       });
       const responseText = await fetchResponse.text();
       linkedStylesheetsContents.set(stylesheet, responseText);
+      performance.mark(`linked-style-done-${stylesheet.href}`);
+      performance.measure(
+        `linked-style-${stylesheet.href}`,
+        `linked-style-${stylesheet.href}`,
+        `linked-style-done-${stylesheet.href}`
+      );
     })
   );
 
