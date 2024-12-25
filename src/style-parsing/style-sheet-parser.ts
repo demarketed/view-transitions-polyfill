@@ -5,6 +5,7 @@ export async function parseStyles() {
   // We cannot rely on the built-in cssText property, as it won't return unsupported properties
   const stylesheets = [...document.styleSheets];
 
+  performance.mark('inline-styles');
   const styleElementsContents: Map<CSSStyleSheet, string> = new Map();
   for (const stylesheet of stylesheets) {
     if (stylesheet.ownerNode instanceof HTMLStyleElement) {
@@ -16,6 +17,7 @@ export async function parseStyles() {
   }
 
   // Get <link rel="stylesheet"> contents
+  performance.mark('link-styles');
   const linkedStylesheets = stylesheets.filter(
     (stylesheet) => stylesheet.ownerNode instanceof HTMLLinkElement
   );
@@ -33,6 +35,7 @@ export async function parseStyles() {
   );
 
   // Merge arrays following the order of document.styleSheets
+  performance.mark('merger');
   const stylesheetContents = stylesheets.map((stylesheet) => {
     return (
       styleElementsContents.get(stylesheet) ||
@@ -41,6 +44,7 @@ export async function parseStyles() {
   });
 
   // Parse each stylesheet
+  performance.mark('parse-start');
   const parsedStyleStrings: string[] = [];
   await Promise.all(
     stylesheetContents.map((stylesheetString) => {
@@ -49,5 +53,13 @@ export async function parseStyles() {
       parsedStyleStrings.push(parsedString);
     })
   );
-  return parsedStyleStrings.join('\n');
+  performance.mark('union-start');
+  const str = parsedStyleStrings.join('\n');
+  performance.mark('union-end');
+  performance.measure('inline-styles', 'inline-styles', 'link-styles');
+  performance.measure('link-styles', 'link-styles', 'merger');
+  performance.measure('merger', 'merger', 'parse-start');
+  performance.measure('parse', 'parse-start', 'union-start');
+  performance.measure('union', 'union-start', 'union-end');
+  return str;
 }
