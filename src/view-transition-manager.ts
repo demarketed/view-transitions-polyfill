@@ -257,7 +257,14 @@ export default class ViewTransitionManager {
 
       try {
         const live = stage === 'new';
+        performance.mark('clone-element');
         captureElement[stage].image = cloneElementWithStyles(element, live);
+        performance.mark('clone-element-end');
+        performance.measure(
+          `clone-element-${captureElement.name}`,
+          'clone-element',
+          'clone-element-end'
+        );
       } catch (error) {
         const reason =
           error instanceof Error
