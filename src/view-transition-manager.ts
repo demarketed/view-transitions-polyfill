@@ -263,10 +263,17 @@ export default class ViewTransitionManager {
 
       try {
         const live = stage === 'new';
+        performance.mark('clone-element');
         captureElement[stage].image = cloneElementWithStyles(
           element,
           live,
           this.fontSizeFactor // Needed for Chrome 114.0.5735.196
+        );
+        performance.mark('clone-element-end');
+        performance.measure(
+          `clone-element-${captureElement.name}`,
+          'clone-element',
+          'clone-element-end'
         );
       } catch (error) {
         const reason =

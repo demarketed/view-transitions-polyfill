@@ -256,7 +256,14 @@ export default class ViewTransitionGroup extends HTMLElement {
     return easing || 'ease';
   }
   animateImages() {
+    performance.mark('sizing-parameters');
     const [duration, easing] = this.getSizingAnimationParemters();
+    performance.mark('sizing-parameters-end');
+    performance.measure(
+      `sizing-parameters-${this.captureElement.name}`,
+      'sizing-parameters',
+      'sizing-parameters-end'
+    );
     if (this.oldImage) this.oldImage.animateImage(duration, easing);
     if (this.newImage) this.newImage.animateImage(duration, easing);
   }
