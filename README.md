@@ -6,6 +6,56 @@ The polyfill is [available on NPM](https://www.npmjs.com/package/view-transition
 
 **Star this repo ⭐ on GitHub if you found it helpful!**
 
+## Performance measurement
+
+This branch is designed to help with measuring the performance of the polyfill's various components.
+
+How you can use it with your web page:
+
+1. Clone the repo checkout this branch:
+
+```
+git clone https://github.com/demarketed/view-transitions-polyfill.git
+cd view-transitions-polyfill
+git checkout performance
+```
+
+2. Build the polyfill:
+
+```
+npm install
+npm run build
+```
+
+3. Link this package:
+
+```
+npm link
+```
+
+4. Link it to your web page:
+
+```
+cd <the directory with your web page project>
+npm link view-transitions-polyfill
+```
+
+5. Start hosting your web page locally.
+
+Now test the performance of the polyfill in Firefox:
+
+1. Go to your local web page.
+2. Open Firefox DevTools and go to the _Performance_ tab to access the Firefox Profiler.
+3. Start recording, then initiate a view transition on your page, then stop recording.
+
+Inspect the performance of the steps of the transition:
+
+1. Click on the _localhost_ track in the top half of the window.
+2. Click on the _Marker Table_ tab in the bottom half of the window if you're unsure which tab to click.
+3. Type _UserTiming_ in the search bar to filter the performance markers. This will make it so that only the polyfill's performance markers are shown.
+
+You will now see the durations for each phase of the transition.
+
 ## Demo
 
 View some [demos showing example transitions](https://demarketed.github.io/view-transitions-polyfill/).
