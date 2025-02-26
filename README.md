@@ -98,3 +98,7 @@ You can view the tests' web pages in your browser with:
 ```
 npm run test-debug
 ```
+
+### Performance measurement
+
+A version of the polyfill set up to measure its performance can be found at the [performance branch](https://github.com/demarketed/view-transitions-polyfill/tree/performance). You can follow the [associated instructions](https://github.com/demarketed/view-transitions-polyfill/tree/performance#performance-measurement).
