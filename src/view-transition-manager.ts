@@ -103,12 +103,6 @@ export default class ViewTransitionManager {
       from { mix-blend-mode: plus-lighter }
       to { mix-blend-mode: plus-lighter }
     }
-    
-    /* Extra rule other than those in the spec */
-    :where(view-transition.has-root-group) {
-      background-color: #fff;
-      background-color: Canvas;
-    }
     `;
 
   phase: ViewTransitionPhase = 'pending-capture';
