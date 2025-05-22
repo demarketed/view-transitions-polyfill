@@ -46,18 +46,18 @@ You can use the polyfill with [Astro view transitions](https://docs.astro.build/
 
 ## Compatibility
 
-According to data from [Can I use](https://caniuse.com/es6,web-animation,mdn-css_selectors_where,shadowdomv1,mdn-api_customelementregistry,requestanimationframe), the polyfill should be fully supported on:
+Based on actual testing and data from [Can I use](https://caniuse.com/es6,web-animation,mdn-css_selectors_where,shadowdomv1,mdn-api_customelementregistry,requestanimationframe), the polyfill should be fully supported on:
 
-| Browser | Supported versions | Release date | Note                        |
-| ------- | ------------------ | ------------ | --------------------------- |
-| Chrome  | ≥ 105              | Aug 30, 2022 |                             |
-| Edge    | ≥ 105              | Sep 1 , 2022 | Same as Chrome              |
-| Firefox | ≥ 106              | Oct 18, 2022 |                             |
-| Safari  | ≥ 17               | Sep 26, 2023 |                             |
-| Opera   | ≥ 97               | Mar 13, 2023 | Haven't test older versions |
+| Browser | Supported versions | Release date   | Note                        |
+| ------- | ------------------ | -------------- | --------------------------- |
+| Chrome  | ≥ 105              | `Aug 30, 2022` |                             |
+| Edge    | ≥ 105              | `Sep 1 , 2022` | Same as Chrome              |
+| Firefox | ≥ 106              | `Oct 18, 2022` |                             |
+| Safari  | ≥ 17               | `Sep 26, 2023` |                             |
+| Opera   | ≥ 97               | `Mar 13, 2023` | Haven't test older versions |
 
 
-This is because the polyfill currently requires the browser to support these notable features:
+The polyfill currently requires the browser to support these notable features:
 
 - [Element.animate()](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
 - [Document.getAnimations()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getAnimations)
