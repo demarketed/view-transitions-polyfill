@@ -344,9 +344,14 @@ export default class ViewTransitionManager {
 
       const style = getComputedStyle(element);
 
-      const isRendered =
-        element.checkVisibility() ??
-        style.getPropertyValue('display') !== 'none';
+      let isRendered = true;
+      if (element.checkVisibility) {
+        isRendered = element.checkVisibility();
+      } else {
+        // Element.checkVisibility is not supported until
+        //  some fairly recent browser versions
+        isRendered = style.getPropertyValue('display') !== 'none';
+      }
       if (!isRendered) return;
       const viewTransitionName =
         element.style.viewTransitionName ||
