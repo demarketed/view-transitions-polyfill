@@ -82,6 +82,7 @@ main.page-2 .large-image {
   animation: none;
   mix-blend-mode: normal;
   height: 100%;
+  overflow: hidden;
   overflow: clip;
 }
 
