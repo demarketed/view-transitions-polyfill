@@ -359,7 +359,8 @@ export default class ViewTransitionManager {
       if (!isRendered) return;
       const viewTransitionName =
         element.style.viewTransitionName ||
-        style.getPropertyValue('--vt-polyfill-name');
+        // Note the .trim(): newer browsers already do it, older browsers don't
+        style.getPropertyValue('--vt-polyfill-name').trim();
 
       const loopOverChildren = (element: StylableElement) =>
         element.querySelectorAll(':scope > *').forEach((child) => {
