@@ -61,3 +61,17 @@
 ::view-transition-new(root) {
   animation: 1500ms both slide-from-top var(--bounce-easing);
 }
+
+.linear-compat-check {
+  padding: 2em;
+  background-color: hsl(0, 100%, 30%);
+  border: 0.2em solid hsl(0, 100%, 15%);
+  margin-block: 3em;
+  border-radius: 1em;
+}
+
+@supports (animation-timing-function: linear(0, 1)) {
+  .linear-compat-check {
+    display: none;
+  }
+}
