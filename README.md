@@ -4,6 +4,8 @@ A polyfill for the [View Transitions API](https://drafts.csswg.org/css-view-tran
 
 The polyfill is [available on NPM](https://www.npmjs.com/package/view-transitions-polyfill).
 
+**Star this repo ⭐ on GitHub if you found it helpful!**
+
 ## Demo
 
 View some [demos showing example transitions](https://demarketed.github.io/view-transitions-polyfill/).
