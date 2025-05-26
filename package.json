@@ -1,6 +1,6 @@
 {
   "name": "view-transitions-polyfill",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A polyfill for the View Transitions API.",
   "type": "module",
   "scripts": {
