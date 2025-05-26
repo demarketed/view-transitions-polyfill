@@ -277,25 +277,6 @@ export default class ViewTransitionManager {
           ? ''
           : captureElement[stage].styleTransform;
 
-      // Convert the standalone CSS transform properties to CSS functions
-      const standaloneTranslate = CSSTransformPropertyToFunction(
-        'translate',
-        style.translate
-      );
-      const standaloneRotate = CSSTransformPropertyToFunction(
-        'rotate',
-        style.rotate
-      );
-      const standaloneScale = CSSTransformPropertyToFunction(
-        'scale',
-        style.scale
-      );
-      const standaloneTransforms = [
-        standaloneTranslate,
-        standaloneRotate,
-        standaloneScale,
-      ].join(' ');
-
       try {
         // Get the element's position and put it in the form of a translate()
         const elementPosition = getElementPosition(element);
@@ -303,8 +284,31 @@ export default class ViewTransitionManager {
         // Combine the translate() for the element's position with any transforms the element had
         // This follows a specific order according to how CSS transforms are applied:
         //  first the element position, then the standalone transforms, then the previous value of the transform property
-        captureElement[stage].transform =
-          `${elementPositionTranslateFunction} ${standaloneTransforms} ${styleTransform}`.trim();
+        if (style.translate) {
+          // Convert the standalone CSS transform properties to CSS functions
+          const standaloneTranslate = CSSTransformPropertyToFunction(
+            'translate',
+            style.translate
+          );
+          const standaloneRotate = CSSTransformPropertyToFunction(
+            'rotate',
+            style.rotate
+          );
+          const standaloneScale = CSSTransformPropertyToFunction(
+            'scale',
+            style.scale
+          );
+          const standaloneTransforms = [
+            standaloneTranslate,
+            standaloneRotate,
+            standaloneScale,
+          ].join(' ');
+          captureElement[stage].transform =
+            `${elementPositionTranslateFunction} ${standaloneTransforms} ${styleTransform}`.trim();
+        } else {
+          captureElement[stage].transform =
+            `${elementPositionTranslateFunction} ${styleTransform}`.trim();
+        }
       } catch (error) {
         const reason =
           error instanceof Error
