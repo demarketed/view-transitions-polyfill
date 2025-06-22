@@ -100,14 +100,6 @@ You can use the polyfill with [Astro view transitions](https://docs.astro.build/
 <script src="view-transitions-polyfill"></script>
 ```
 
-### With Astro View Transitions
-
-You can use the polyfill with [Astro view transitions](https://docs.astro.build/en/guides/view-transitions/) by importing the script in the document as you would normally. For example, within a component:
-
-```html
-<script src="view-transitions-polyfill"></script>
-```
-
 ## Compatibility
 
 According to data from [Can I use](https://caniuse.com/es6,web-animation,mdn-css_selectors_where,shadowdomv1,mdn-api_customelementregistry,requestanimationframe), the polyfill should be fully supported on:
