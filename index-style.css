@@ -31,6 +31,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1em;
+  isolation: isolate;
 }
 .link-button {
   display: flex;
@@ -46,6 +47,9 @@ body {
     250ms ease background-color,
     250ms ease transform;
   position: relative;
+}
+.link-button-gh {
+  z-index: 1;
 }
 .logo {
   display: block;
@@ -92,6 +96,18 @@ body {
 .star-emoji {
   border-radius: 100%;
   margin-inline-end: 0.5em;
+  position: relative;
+  isolation: isolate;
+}
+.star-emoji::before {
+  content: '';
+  display: none;
+  z-index: -1;
+  position: absolute;
+  inset: -0.3em;
+  border-radius: 100%;
+  background-color: rgb(0, 27, 78);
+  filter: blur(4px);
 }
 ul {
   list-style-type: none;
@@ -154,9 +170,8 @@ footer small {
   .arrow {
     border-bottom-color: rgb(183, 202, 236);
   }
-  .star-emoji {
-    background-color: rgb(0, 27, 78);
-    box-shadow: 0 0 0.5em 0.5em rgb(0, 27, 78);
+  .star-emoji::before {
+    display: block;
   }
   .link-button {
     background-color: hsl(220, 100%, 8%);
