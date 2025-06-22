@@ -14,17 +14,32 @@ View some [demos showing example transitions](https://demarketed.github.io/view-
 
 ## Installation
 
-Install the polyfill in your project from [NPM](https://www.npmjs.com/package/view-transitions-polyfill):
+### Using npm
+
+Install the polyfill in your project from [npm](https://www.npmjs.com/package/view-transitions-polyfill):
 
 ```
 npm install view-transitions-polyfill
 ```
 
+### Plain JS file
+
+You may also download the polyfill's pre-built JS file from:
+
+- [Download version 1.0.5](https://github.com/demarketed/view-transitions-polyfill/releases/download/1.0.5/view-transitions-polyfill.js) (obtained from the [latest GitHub release](https://github.com/demarketed/view-transitions-polyfill/releases/tag/1.0.5))
+
+### jsDelivr CDN
+
+Get the polyfill from from [jsDelivr](https://www.jsdelivr.com/):
+
+- Version 1.0.5: [https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5](https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5)
+- Latest version: [https://cdn.jsdelivr.net/npm/view-transitions-polyfill](https://cdn.jsdelivr.net/npm/view-transitions-polyfill)
+
 ## Usage
 
 Import the module into your site.
 
-Inside a script:
+Inside a script (make sure it has `type="module"` in the `<script>` tag):
 
 ```js
 import 'view-transitions-polyfill';
@@ -33,9 +48,56 @@ import 'view-transitions-polyfill';
 Or from the HTML:
 
 ```html
+<script src="view-transitions-polyfill" async></script>
+
+<!-- If the above does not work, try: -->
 <script type="module">
   import 'view-transitions-polyfill';
 </script>
+```
+
+> [!NOTE]  
+> Change the URLs in the above code snippets according to your use case.
+>
+> - Import from npm: `view-transitions-polyfill`
+> - Import from plain JS file: `./view-transitions-polyfill.js` (point it to the correct path for you)
+> - Import from jsDelivr (version 1.0.5): `https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5`
+
+### Conditional loading
+
+The above code snippets will always download the polyfill, whether the browser needs it or not. In order to only download the polyfill when needed, use the following code snippets.
+
+Inside a script (make sure it has `type="module"` in the `<script>` tag):
+
+```js
+if (!document.startViewTransition) {
+  import('view-transitions-polyfill');
+}
+```
+
+Or from the HTML:
+
+```html
+<script type="module">
+  if (!document.startViewTransition) {
+    import('view-transitions-polyfill');
+  }
+</script>
+```
+
+> [!NOTE]  
+> Change the URLs in the above code snippets according to your use case.
+>
+> - Import from npm: `view-transitions-polyfill`
+> - Import from plain JS file: `./view-transitions-polyfill.js` (point it to the correct path for you)
+> - Import from jsDelivr (version 1.0.5): `https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5`
+
+### With Astro View Transitions
+
+You can use the polyfill with [Astro view transitions](https://docs.astro.build/en/guides/view-transitions/) by importing the script in the document as you would normally. For example, within a component:
+
+```html
+<script src="view-transitions-polyfill"></script>
 ```
 
 ### With Astro View Transitions
