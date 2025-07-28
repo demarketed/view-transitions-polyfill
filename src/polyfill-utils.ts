@@ -274,9 +274,16 @@ export function cloneElementWithStyles(
       // This ensures all content behind the transition is obscured, even before a view-transition group for <html> is added.
       // As such, there won't be a flash of content visible through the transparent <view-transition>
       //  if the transition is supposed to encompass the whole document.
-      const backgroundStyle = document.createElement('style');
-      backgroundStyle.textContent = `:where(#${cloneID}) {background-color: Canvas}`;
-      clone.appendChild(backgroundStyle);
+      const htmlStyle = document.createElement('style');
+      htmlStyle.textContent = `
+      :where(#${cloneID}) {background-color: Canvas}
+      #${cloneID} {zoom: initial !important;}
+      `;
+      // This also works around an unrelated issue on Chrome 114.0.5735.196
+      // That browser has a bug where the return value of
+      // getComputedStyle().zoom for <html> is the window.devicePixelRatio
+
+      clone.appendChild(htmlStyle);
     }
 
     if (cloningRoot) {
