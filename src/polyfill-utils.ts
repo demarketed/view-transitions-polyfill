@@ -250,7 +250,8 @@ export function cloneElementWithStyles(
           //  but where the polyfill still applies the inherited color
           //  because of -webkit-text-fill-color, which overrides it.
           // As such, normalize it to the color property.
-          CSSProperties.push(`color: ${value}`);
+          CSSProperties.push(`color: ${value};`);
+          continue;
         }
         CSSProperties.push(`${property}: ${value};`);
       }
