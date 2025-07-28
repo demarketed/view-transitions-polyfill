@@ -6,6 +6,7 @@ import {
   isStylableElement,
   CSSTransformPropertyToFunction,
   ViewTransition,
+  shouldNormalizeFontSize,
 } from './polyfill-utils';
 import ViewTransitionGroup from './elements/view-transition-group';
 import type { StylableElement } from './polyfill-utils';
@@ -115,6 +116,10 @@ export default class ViewTransitionManager {
   callback: Callback | undefined = () => undefined;
   animationPromises: Promise<Animation>[] = [];
 
+  // Needed for Chrome 114.0.5735.196
+  // (see shouldNormalizeFontSize())
+  fontSizeFactor: number | undefined = undefined;
+
   // Store focus to be restored from inert
   activeElement: HTMLElement | undefined;
 
@@ -150,6 +155,7 @@ export default class ViewTransitionManager {
 
     this.addUAStylesheet();
     this.viewTransitionElement.appendChild(this.parsedStyleElement);
+    this.fontSizeFactor = shouldNormalizeFontSize();
 
     this.namedElements = new Map();
     try {
@@ -257,7 +263,11 @@ export default class ViewTransitionManager {
 
       try {
         const live = stage === 'new';
-        captureElement[stage].image = cloneElementWithStyles(element, live);
+        captureElement[stage].image = cloneElementWithStyles(
+          element,
+          live,
+          this.fontSizeFactor // Needed for Chrome 114.0.5735.196
+        );
       } catch (error) {
         const reason =
           error instanceof Error

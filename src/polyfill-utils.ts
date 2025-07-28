@@ -188,9 +188,30 @@ export function isStylableElement(
   );
 }
 
+export function shouldNormalizeFontSize(): number | undefined {
+  // Needed for Chrome 114.0.5735.196
+  // That browser has a bug where the font-size returned
+  //  by getComputedStyle() might be multiplied by a constant factor.
+  // If the polyfill doesn't correct for this bug, all cloned elements
+  //  with a non-default font-size will have the wrong font-size.
+  const fontSizeTester = document.createElement('div');
+  fontSizeTester.style.fontSize = '16px';
+  fontSizeTester.style.position = 'fixed';
+  fontSizeTester.style.display = 'none';
+  document.body.appendChild(fontSizeTester);
+  const fontSizeFactor =
+    parseFloat(getComputedStyle(fontSizeTester).fontSize) / 16;
+  fontSizeTester.remove();
+
+  return fontSizeFactor > 1.01 || fontSizeFactor < 0.99
+    ? fontSizeFactor
+    : undefined;
+}
+
 export function cloneElementWithStyles(
   element: StylableElement,
-  live = false
+  live = false,
+  normalizeFontSizeFactor: number | undefined = undefined // Needed for Chrome 114.0.5735.196
 ): Element | undefined {
   // This is a recursive function that clones an element while also applying its computed styles
 
@@ -238,7 +259,9 @@ export function cloneElementWithStyles(
     if (style) {
       for (const property of [...style]) {
         if (neverCloneProperties.includes(property)) continue;
+
         const value = style.getPropertyValue(property);
+
         if (
           value === defaultStyle.getPropertyValue(property) &&
           !alwaysCloneProperties.includes(property)
@@ -251,6 +274,11 @@ export function cloneElementWithStyles(
           //  because of -webkit-text-fill-color, which overrides it.
           // As such, normalize it to the color property.
           CSSProperties.push(`color: ${value};`);
+          continue;
+        } else if (normalizeFontSizeFactor && property === 'font-size') {
+          CSSProperties.push(
+            `font-size: ${parseFloat(value) / normalizeFontSizeFactor}px;`
+          );
           continue;
         }
         CSSProperties.push(`${property}: ${value};`);
