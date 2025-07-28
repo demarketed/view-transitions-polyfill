@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "run-p build-watch-demos serve",
+    "dev-host": "run-p build-watch-demos serve-host",
     "serve": "vite",
+    "serve-host": "vite --host",
     "build": "vite build",
     "build-watch": "vite build --watch",
     "build-demos": "vite build --config vite.config.demos.js",
