@@ -51,7 +51,9 @@ export class MediaClone extends HTMLElement {
       return;
     }
     this.ctx.drawImage(this.element, 0, 0);
-    requestAnimationFrame(() => this.drawLive.call(this));
+    this.nextAnimationFrame = requestAnimationFrame(() =>
+      this.drawLive.call(this)
+    );
   }
   draw() {
     if (!this.element) return;
