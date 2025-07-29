@@ -155,6 +155,22 @@ You can view the tests' web pages in your browser with:
 npm run test-debug
 ```
 
+### Optimizing test performance
+
+It is recommended that you run the tests like this:
+
+```
+npm run test -- --processes <number of threads> -f --exclude css/css-view-transitions/navigation
+```
+
+- `--processes` and `-f` introduce parallelism to make the tests run faster.
+- `--exclude` makes it so that [Navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API) tests are ignored, since they will always fail on some browsers (e.g. Firefox) which do not implement that API.
+
+> [!NOTE]
+> More command line options are documented on the [web platform tests documentation](https://web-platform-tests.org/running-tests/command-line-arguments.html).
+
+You can also add these arguments to `npm run test-always-polyfill`.
+
 ### Performance measurement
 
 A version of the polyfill set up to measure its performance can be found at the [performance branch](https://github.com/demarketed/view-transitions-polyfill/tree/performance). You can follow the [associated instructions](https://github.com/demarketed/view-transitions-polyfill/tree/performance#performance-measurement).
