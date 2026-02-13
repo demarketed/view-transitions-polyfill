@@ -26,13 +26,13 @@ npm install view-transitions-polyfill
 
 You may also download the polyfill's pre-built JS file from:
 
-- [Download version 1.0.5](https://github.com/demarketed/view-transitions-polyfill/releases/download/1.0.5/view-transitions-polyfill.js) (obtained from the [latest GitHub release](https://github.com/demarketed/view-transitions-polyfill/releases/tag/1.0.5))
+- [Download version 1.0.6](https://github.com/demarketed/view-transitions-polyfill/releases/download/1.0.6/view-transitions-polyfill.js) (obtained from the [latest GitHub release](https://github.com/demarketed/view-transitions-polyfill/releases/tag/1.0.6))
 
 ### jsDelivr CDN
 
 Get the polyfill from from [jsDelivr](https://www.jsdelivr.com/):
 
-- Version 1.0.5: [https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5](https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5)
+- Version 1.0.6: [https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.6](https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.6)
 - Latest version: [https://cdn.jsdelivr.net/npm/view-transitions-polyfill](https://cdn.jsdelivr.net/npm/view-transitions-polyfill)
 
 ## Usage
@@ -61,7 +61,7 @@ Or from the HTML:
 >
 > - Import from npm: `view-transitions-polyfill`
 > - Import from plain JS file: `./view-transitions-polyfill.js` (point it to the correct path for you)
-> - Import from jsDelivr (version 1.0.5): `https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5`
+> - Import from jsDelivr (version 1.0.6): `https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.6`
 
 ### Conditional loading
 
@@ -90,7 +90,7 @@ Or from the HTML:
 >
 > - Import from npm: `view-transitions-polyfill`
 > - Import from plain JS file: `./view-transitions-polyfill.js` (point it to the correct path for you)
-> - Import from jsDelivr (version 1.0.5): `https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.5`
+> - Import from jsDelivr (version 1.0.6): `https://cdn.jsdelivr.net/npm/view-transitions-polyfill@1.0.6`
 
 ### With Astro View Transitions
 
